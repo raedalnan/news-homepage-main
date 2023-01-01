@@ -1,0 +1,251 @@
+:root{
+    --Soft-orange: hsl(35, 77%, 62%);
+    --Soft-red: hsl(5, 85%, 63%);
+    --Off-white : hsl(36, 100%, 99%);
+    --Grayish-blue: hsl(233, 8%, 79%);
+    --Dark-grayish-blue: hsl(236, 13%, 42%);
+    --Very-dark-blue: hsl(240, 100%, 5%);
+}
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-size: 15px;
+}
+body{
+    font-family: 'Inter', sans-serif;
+    background-color: var(--Off-white);
+}
+
+ul{
+    text-decoration: none;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    list-style: none;
+}
+a{
+    text-decoration: none;
+}
+nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 80%;
+    margin: 5rem auto;
+}
+nav li{
+    padding: 0 10px;
+}
+nav li a{
+    color : var(--Dark-grayish-blue);
+}
+nav li a:hover{
+    color : var(--Soft-red);
+    transition: 0.3s;
+}
+.menu-btn{
+    display: none;
+}
+.hidden{
+    display: none;
+}
+.active{
+    display: block;
+}
+.overlay{
+    background-color: black;
+    top: 0;
+    opacity: 0.4;
+    width: 100%;
+    height:300vh;
+    position: absolute;
+}
+.container{
+    display: grid;
+    width: 80%;
+    margin: 5rem auto;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-areas: 
+    "main-img main-img side-bar"
+    "main-img main-img side-bar"
+    "title info side-bar"
+    "one two three";
+    gap: 3rem;
+}
+.main-img{
+    grid-area: main-img;
+}
+.main-img img{
+    width: 100%;
+}
+aside{
+    grid-area: side-bar;
+    background-color: var(--Very-dark-blue);
+    padding: 2rem;
+}
+aside h2{
+    color: var(--Soft-orange);
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+aside h3{
+    color: var(--Off-white);
+    padding:1rem 0;
+}
+aside h3:hover{
+    color: var(--Soft-orange);
+    cursor: pointer;
+}
+aside p{
+    color: var(--Grayish-blue);
+    padding:0 0 2.5rem 0;
+
+}
+.side-bar{
+    border-bottom: 1px solid var(--Dark-grayish-blue);
+    margin-bottom: 10px;
+}
+.title{
+    grid-area: title;
+}
+.title h1{
+    font-size: 3.7rem;
+    font-style: bold;
+    font-weight: 800;
+}
+.info{
+    grid-area: info;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 1rem;
+}
+.info p{
+    color: var(--Dark-grayish-blue);
+    line-height: 25px;
+    margin-bottom: 1rem;
+}
+.info button{
+    padding: 1rem 4rem;
+    border: none;
+    background-color: var(--Soft-red);
+    color: var(--Off-white);
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+.info button:hover{
+    background-color: var(--Very-dark-blue);
+    transition: 0.3s;
+}
+.one{
+    grid-area: one;
+}
+.two{
+    grid-area: two;
+}
+.three{
+    grid-area: three;
+}
+.down{
+    display: flex;
+    flex-direction: row;
+}
+.down img{
+    width: 28%;
+}
+.small-container{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    padding:  0 1rem;
+}
+.small-container span{
+    color: var(--Grayish-blue);
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+.small-container h3{
+    color: var(--Very-dark-blue);
+    font-weight: 700;
+    font-size: 1.3rem;
+}
+.small-container h3:hover{
+    color: var(--Soft-red);
+    cursor: pointer;
+}
+.small-container p{
+    color: var(--Dark-grayish-blue);
+}
+
+.attribution { 
+    font-size: 11px; text-align: center; 
+}
+.attribution a {
+     color: hsl(228, 45%, 44%); 
+}
+@media only screen and (max-width: 750px) {
+    .container{
+        display: flex;
+        flex-direction: column;
+    }
+    .image-web{
+        display: none;
+    }
+    .image-mobile{
+        display: block;
+    }
+    .info{
+        margin-top: 0;
+    }
+}
+@media only screen and (min-width: 800px){
+    .active{
+     display: flex;
+     flex-direction: row;
+    }
+    .overlay{
+        display: none;
+     }
+ }
+ @media only screen and (max-width: 650px) {
+     .menu-btn{
+         display: block;
+         position: absolute;
+         right: 3rem;
+         top: 5rem;
+         border: none;
+         cursor: pointer;
+         z-index: 7;
+         background-color: var(--Off-white);
+         
+     }
+     
+     .open{
+         margin-top: 10px;
+     }
+     .close{
+        margin: 2rem -1rem;
+     }
+     nav ul{
+         flex-direction: column;
+         justify-content: start;
+         align-items:left ;
+         padding-top: 6rem;
+         position: absolute;
+         background-color: var(--Off-white);
+         height: 100vh;
+         width: 70%;
+         right: 0;
+         z-index: 3;
+         display: none;
+     }
+     nav ul li{
+         padding: 1.3rem;
+     }
+     nav ul li a{
+         color: var(--Very-dark-blue);
+     }
+ }
